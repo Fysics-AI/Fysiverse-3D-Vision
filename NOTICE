@@ -1,0 +1,29 @@
+Fysiverse-3D-Vision
+Copyright 2026 Fysics AI contributors
+
+This product is licensed under the Apache License, Version 2.0. See LICENSE.
+
+The post-refinement implementation under scripts/post_refine/vendor/ and
+scripts/post_refine/run_case_local.sh was adapted from the FysicsMagic
+inference-side refinement implementation. Fysics AI contributors release this
+included source under the repository's Apache License 2.0.
+
+Portions of src/fysiverse/layout_runtime/g2vlm_inference.py are derived from
+G2VLM code distributed by InternRobotics and carry the original ByteDance Ltd.
+and/or affiliates copyright notice and Apache License 2.0 identifier:
+https://github.com/InternRobotics/G2VLM
+
+The repository includes an integration patch for Grounding DINO. Grounding
+DINO is distributed by IDEA Research under its upstream license:
+https://github.com/IDEA-Research/GroundingDINO
+
+Model weights and third-party runtime source repositories are downloaded
+separately. They remain governed by their own copyright notices, licenses,
+access requirements, and acceptable-use terms. In particular, the SAM 3D
+Objects, FLUX, DINOv3, RMBG, G2VLM dependency code, and CUDA extension terms
+are not replaced or broadened by this repository's Apache License 2.0. See
+docs/third-party-sources.md, docs/models.md, and the upstream model cards before use
+or redistribution.
+
+Fysics AI is the project/team name used for this release. This NOTICE does not
+assert a registered legal entity or grant trademark rights.

@@ -1,0 +1,23 @@
+# TRELLIS.2 Python runtime. Source-built CUDA packages are intentionally
+# installed by scripts/install_cuda_extensions.sh.
+easydict
+einops==0.8.1
+imageio
+imageio-ffmpeg
+jaxtyping
+kornia
+lpips
+huggingface_hub
+modelscope>=1.22,<2.0
+moderngl>=5.10,<6
+ninja
+opencv-python-headless
+pandas
+pillow
+plyfile
+rich>=12
+timm
+tqdm
+transformers
+trimesh
+zstandard

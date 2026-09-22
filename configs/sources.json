@@ -1,0 +1,111 @@
+{
+  "version": "0.3",
+  "network_timeout_seconds": 30,
+  "transfer_timeout_seconds": 1800,
+  "github_proxy_routes": [
+    {
+      "name": "ghproxy.net",
+      "url_prefix": "https://ghproxy.net/https://github.com/"
+    },
+    {
+      "name": "ghfast.top",
+      "url_prefix": "https://ghfast.top/https://github.com/"
+    }
+  ],
+  "sources": {
+    "grounded_sam2": {
+      "repo_url": "https://github.com/IDEA-Research/Grounded-SAM-2.git",
+      "revision": "b7a9c29f196edff0eb54dbe14588d7ae5e3dde28",
+      "local_dir": "third_party/src/Grounded-SAM-2",
+      "required_file": "grounding_dino/groundingdino/config/GroundingDINO_SwinT_OGC.py"
+    },
+    "trellis2": {
+      "repo_url": "https://github.com/microsoft/TRELLIS.2.git",
+      "revision": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+      "local_dir": "third_party/src/TRELLIS.2",
+      "required_file": "trellis2/pipelines/__init__.py",
+      "recursive": true
+    },
+    "g2vlm": {
+      "repo_url": "https://github.com/InternRobotics/G2VLM.git",
+      "revision": "31048407efc3862facfec3f846a9c5f05734efe4",
+      "local_dir": "third_party/src/G2VLM",
+      "required_file": "modeling/g2vlm/qwen2vl.py"
+    },
+    "sam3d": {
+      "repo_url": "https://github.com/facebookresearch/sam-3d-objects.git",
+      "revision": "81a82373a3a7f4cbb00bd5b32aaf6b4d0f659ddd",
+      "local_dir": "third_party/src/sam-3d-objects",
+      "required_file": "sam3d_objects/__init__.py"
+    },
+    "pytorch3d": {
+      "repo_url": "https://github.com/facebookresearch/pytorch3d.git",
+      "revision": "75ebeeaea0908c5527e7b1e305fbc7681382db47",
+      "local_dir": "third_party/src/pytorch3d",
+      "required_file": "pytorch3d/__init__.py"
+    },
+    "gsplat": {
+      "repo_url": "https://github.com/nerfstudio-project/gsplat.git",
+      "revision": "2323de5905d5e90e035f792fe65bad0fedd413e7",
+      "local_dir": "third_party/src/gsplat",
+      "required_file": "setup.py",
+      "recursive": true
+    },
+    "moge": {
+      "repo_url": "https://github.com/microsoft/MoGe.git",
+      "revision": "a8c37341bc0325ca99b9d57981cc3bb2bd3e255b",
+      "local_dir": "third_party/src/MoGe",
+      "required_file": "moge/model/v1.py"
+    },
+    "utils3d_moge": {
+      "repo_url": "https://github.com/EasternJournalist/utils3d.git",
+      "revision": "3913c65d81e05e47b9f367250cf8c0f7462a0900",
+      "local_dir": "third_party/src/utils3d-moge",
+      "required_file": "utils3d/__init__.py"
+    },
+    "utils3d_trellis": {
+      "repo_url": "https://github.com/EasternJournalist/utils3d.git",
+      "revision": "9a4eb15e4021b67b12c460c7057d642626897ec8",
+      "local_dir": "third_party/src/utils3d-trellis",
+      "required_file": "utils3d/__init__.py"
+    },
+    "dinov2": {
+      "repo_url": "https://github.com/facebookresearch/dinov2.git",
+      "revision": "7764ea0f912e53c92e82eb78a2a1631e92725fc8",
+      "local_dir": "third_party/src/dinov2",
+      "required_file": "hubconf.py"
+    },
+    "diffusers": {
+      "repo_url": "https://github.com/huggingface/diffusers.git",
+      "revision": "ca79f8ccc4856c675d189b6100dfbd971ea9d1b9",
+      "local_dir": "third_party/src/diffusers",
+      "required_file": "src/diffusers/__init__.py"
+    },
+    "nvdiffrast": {
+      "repo_url": "https://github.com/NVlabs/nvdiffrast.git",
+      "revision": "253ac4fcea7de5f396371124af597e6cc957bfae",
+      "local_dir": "third_party/src/nvdiffrast",
+      "required_file": "setup.py"
+    },
+    "nvdiffrec": {
+      "repo_url": "https://github.com/JeffreyXiang/nvdiffrec.git",
+      "revision": "b296927cc7fd01c2ac1087c8065c4d7248f72da4",
+      "local_dir": "third_party/src/nvdiffrec",
+      "required_file": "setup.py"
+    },
+    "cumesh": {
+      "repo_url": "https://github.com/JeffreyXiang/CuMesh.git",
+      "revision": "12289e1062f0603f2f0d0771b02e1395d247f26f",
+      "local_dir": "third_party/src/CuMesh",
+      "required_file": "setup.py",
+      "recursive": true
+    },
+    "flexgemm": {
+      "repo_url": "https://github.com/JeffreyXiang/FlexGEMM.git",
+      "revision": "6dd94a859c26ee8246888502eada3dd8ad85532e",
+      "local_dir": "third_party/src/FlexGEMM",
+      "required_file": "setup.py",
+      "recursive": true
+    }
+  }
+}

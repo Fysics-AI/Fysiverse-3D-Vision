@@ -1,0 +1,365 @@
+{
+  "version": "0.1",
+  "model_root": "models",
+  "network_timeout_seconds": 30,
+  "download_safety_factor": 1.25,
+  "minimum_free_gb_for_all_models": 168,
+  "models": {
+    "layout": {
+      "source_type": "company_hf",
+      "repo_id": "Fysics-AI/Fysiverse-3D-Vision",
+      "source_url": "https://huggingface.co/Fysics-AI/Fysiverse-3D-Vision",
+      "modelscope_repo_id": "Fysics-AI/Fysiverse-3D-Vision",
+      "modelscope_url": "https://modelscope.cn/models/Fysics-AI/Fysiverse-3D-Vision",
+      "modelscope_revision": "master",
+      "local_dir": "models/layout",
+      "role": "G2VLM backbone replacements and Layout branch for translation, rotation, and scaling",
+      "required": true,
+      "model_dependencies": ["g2vlm", "sam3d", "moge", "dinov2"],
+      "source_dependencies": ["g2vlm", "sam3d", "moge", "dinov2", "utils3d_moge", "pytorch3d", "gsplat"],
+      "license": "Apache-2.0",
+      "estimated_size_gb": 15,
+      "required_files": [
+        "config.json",
+        "backbone.safetensors.index.json",
+        "layout.safetensors"
+      ],
+      "required_globs": ["backbone-*.safetensors"],
+      "allow_patterns": [
+        "backbone-*.safetensors",
+        "backbone.safetensors.index.json",
+        "layout.safetensors",
+        "config.json",
+        "manifest.json",
+        "checksums.json",
+        "README.md",
+        "LICENSE"
+      ]
+    },
+    "g2vlm": {
+      "source_type": "official_hf",
+      "repo_id": "InternRobotics/G2VLM-2B-MoT",
+      "source_url": "https://huggingface.co/InternRobotics/G2VLM-2B-MoT",
+      "modelscope_repo_id": "InternRobotics/G2VLM-2B-MoT",
+      "modelscope_url": "https://modelscope.cn/models/InternRobotics/G2VLM-2B-MoT",
+      "modelscope_revision": "master",
+      "revision": "4e75aa3b47695d543fc9cede09bb9ab4754149a9",
+      "local_dir": "models/g2vlm",
+      "role": "G2VLM base model, tokenizer, and processor",
+      "required": true,
+      "source_dependencies": ["g2vlm"],
+      "license": "Apache-2.0 (upstream model card)",
+      "estimated_size_gb": 20,
+      "required_files": [
+        "model.safetensors",
+        "config.json",
+        "text_config.json",
+        "vit_config.json",
+        "dino_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "vocab.json",
+        "merges.txt"
+      ],
+      "allow_patterns": [
+        "model.safetensors",
+        "config.json",
+        "text_config.json",
+        "vit_config.json",
+        "dino_config.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "generation_config.json",
+        "preprocessor_config.json",
+        "chat_template.json",
+        "vocab.json",
+        "merges.txt",
+        "README.md"
+      ]
+    },
+    "grounded_sam2": {
+      "source_type": "official_url",
+      "source_url": "https://github.com/IDEA-Research/Grounded-SAM-2",
+      "local_dir": "models/grounded_sam2",
+      "role": "Automatic open-vocabulary instance mask generation",
+      "required": true,
+      "model_dependencies": ["bert_base_uncased"],
+      "source_dependencies": ["grounded_sam2"],
+      "license": "Mixed upstream terms: SAM 2 and GroundingDINO; see both upstream licenses",
+      "estimated_size_gb": 3,
+      "required_files": [
+        "checkpoints/sam2.1_hiera_large.pt",
+        "gdino_checkpoints/groundingdino_swint_ogc.pth"
+      ],
+      "files": [
+        {
+          "url": "https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_large.pt",
+          "path": "checkpoints/sam2.1_hiera_large.pt",
+          "size_bytes": 898083611,
+          "sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318"
+        },
+        {
+          "url": "https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth",
+          "download_urls": [
+            "https://hf-mirror.com/ShilongLiu/GroundingDINO/resolve/a94c9b567a2a374598f05c584e96798a170c56fb/groundingdino_swint_ogc.pth",
+            "https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth"
+          ],
+          "path": "gdino_checkpoints/groundingdino_swint_ogc.pth",
+          "size_bytes": 693997677,
+          "sha256": "3b3ca2563c77c69f651d7bd133e97139c186df06231157a64c507099c52bc799"
+        }
+      ]
+    },
+    "bert_base_uncased": {
+      "source_type": "official_hf",
+      "repo_id": "google-bert/bert-base-uncased",
+      "source_url": "https://huggingface.co/google-bert/bert-base-uncased",
+      "modelscope_repo_id": "AI-ModelScope/bert-base-uncased",
+      "modelscope_url": "https://modelscope.cn/models/AI-ModelScope/bert-base-uncased",
+      "modelscope_revision": "master",
+      "revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+      "local_dir": "models/bert_base_uncased",
+      "role": "Offline BERT tokenizer and text encoder used by GroundingDINO",
+      "required": true,
+      "license": "Apache-2.0 (upstream model card)",
+      "estimated_size_gb": 0.5,
+      "required_files": [
+        "config.json",
+        "model.safetensors",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "vocab.txt"
+      ],
+      "allow_patterns": [
+        "config.json",
+        "model.safetensors",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "vocab.txt",
+        "README.md",
+        "LICENSE"
+      ]
+    },
+    "sam3d": {
+      "source_type": "official_hf",
+      "repo_id": "facebook/sam-3d-objects",
+      "source_url": "https://huggingface.co/facebook/sam-3d-objects",
+      "modelscope_repo_id": "facebook/sam-3d-objects",
+      "modelscope_url": "https://modelscope.cn/models/facebook/sam-3d-objects",
+      "modelscope_revision": "master",
+      "local_dir": "models/sam3d",
+      "role": "SAM3D object condition encoder for layout inference",
+      "required": true,
+      "model_dependencies": ["moge", "dinov2"],
+      "source_dependencies": ["sam3d", "moge", "dinov2", "utils3d_moge", "pytorch3d", "gsplat"],
+      "license": "SAM License; gated upstream repository",
+      "access": "gated; request access and authenticate on Hugging Face",
+      "estimated_size_gb": 7,
+      "required_files": [
+        "checkpoints/ss_generator.yaml",
+        "checkpoints/ss_generator.ckpt"
+      ],
+      "allow_patterns": [
+        "checkpoints/ss_generator.yaml",
+        "checkpoints/ss_generator.ckpt",
+        "README.md"
+      ]
+    },
+    "moge": {
+      "source_type": "official_url",
+      "source_url": "https://huggingface.co/Ruicheng/moge-vitl",
+      "revision": "ad326bfb61facd6c52b5a825bc1e34d7c97d9672",
+      "local_dir": "models/moge",
+      "role": "Pointmap/depth condition for the layout encoder",
+      "required": true,
+      "model_dependencies": ["dinov2"],
+      "source_dependencies": ["moge", "dinov2", "utils3d_moge"],
+      "license": "MIT (upstream model card)",
+      "estimated_size_gb": 2,
+      "required_files": ["model.pt"],
+      "files": [
+        {
+          "url": "https://huggingface.co/Ruicheng/moge-vitl/resolve/ad326bfb61facd6c52b5a825bc1e34d7c97d9672/model.pt",
+          "download_urls": [
+            "https://hf-mirror.com/Ruicheng/moge-vitl/resolve/ad326bfb61facd6c52b5a825bc1e34d7c97d9672/model.pt",
+            "https://huggingface.co/Ruicheng/moge-vitl/resolve/ad326bfb61facd6c52b5a825bc1e34d7c97d9672/model.pt"
+          ],
+          "path": "model.pt",
+          "size_bytes": 1256823446,
+          "sha256": "da96b09a0485a3c45a5aa455e67743c8b4efc4dd8437c1f2aa93c2b4303d957f"
+        }
+      ]
+    },
+    "dinov2": {
+      "source_type": "official_url",
+      "source_url": "https://github.com/facebookresearch/dinov2",
+      "local_dir": "models/dinov2",
+      "role": "Offline DINOv2 ViT-L/14 register backbone used by the SAM3D condition encoder and MoGe",
+      "required": true,
+      "source_dependencies": ["dinov2"],
+      "license": "Apache-2.0",
+      "estimated_size_gb": 2,
+      "required_files": [
+        "torch_hub/checkpoints/dinov2_vitl14_reg4_pretrain.pth"
+      ],
+      "files": [
+        {
+          "url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitl14/dinov2_vitl14_reg4_pretrain.pth",
+          "path": "torch_hub/checkpoints/dinov2_vitl14_reg4_pretrain.pth",
+          "size_bytes": 1217607321,
+          "sha256": "36e4deffbaef061a2576705b0c36f93621e2ae20bf6274694821b0b492551b51"
+        }
+      ]
+    },
+    "flux": {
+      "source_type": "official_hf",
+      "repo_id": "black-forest-labs/FLUX.2-klein-9B",
+      "source_url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-9B",
+      "modelscope_repo_id": "black-forest-labs/FLUX.2-klein-9B",
+      "modelscope_url": "https://modelscope.cn/models/black-forest-labs/FLUX.2-klein-9B",
+      "modelscope_revision": "master",
+      "local_dir": "models/flux/FLUX.2-klein-9B",
+      "role": "Object cutout completion before image-to-3D generation",
+      "required": true,
+      "source_dependencies": ["diffusers"],
+      "license": "FLUX Non-Commercial License; gated upstream repository",
+      "access": "gated; accept the license and authenticate on Hugging Face",
+      "estimated_size_gb": 55,
+      "required_files": [
+        "model_index.json",
+        "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+        "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+        "text_encoder/model.safetensors.index.json",
+        "text_encoder/model-00001-of-00004.safetensors",
+        "text_encoder/model-00002-of-00004.safetensors",
+        "text_encoder/model-00003-of-00004.safetensors",
+        "text_encoder/model-00004-of-00004.safetensors",
+        "vae/diffusion_pytorch_model.safetensors"
+      ],
+      "required_file_sizes": {
+        "model_index.json": 446,
+        "transformer/diffusion_pytorch_model.safetensors.index.json": 24875,
+        "transformer/diffusion_pytorch_model-00001-of-00002.safetensors": 9801069272,
+        "transformer/diffusion_pytorch_model-00002-of-00002.safetensors": 8356121608,
+        "text_encoder/model.safetensors.index.json": 32914,
+        "text_encoder/model-00001-of-00004.safetensors": 4902257696,
+        "text_encoder/model-00002-of-00004.safetensors": 4915960368,
+        "text_encoder/model-00003-of-00004.safetensors": 4983068496,
+        "text_encoder/model-00004-of-00004.safetensors": 1580230264,
+        "vae/diffusion_pytorch_model.safetensors": 168120878
+      }
+    },
+    "trellis2": {
+      "source_type": "official_hf",
+      "repo_id": "microsoft/TRELLIS.2-4B",
+      "source_url": "https://huggingface.co/microsoft/TRELLIS.2-4B",
+      "modelscope_repo_id": "microsoft/TRELLIS.2-4B",
+      "modelscope_url": "https://modelscope.cn/models/microsoft/TRELLIS.2-4B",
+      "modelscope_revision": "master",
+      "local_dir": "models/trellis2/TRELLIS.2-4B",
+      "role": "Single-object image-to-3D GLB generation",
+      "required": true,
+      "model_dependencies": ["trellis_image_large", "dinov3_vitl16", "rmbg2"],
+      "source_dependencies": ["trellis2", "utils3d_trellis", "nvdiffrast", "nvdiffrec", "cumesh", "flexgemm"],
+      "license": "MIT (upstream model card)",
+      "estimated_size_gb": 30,
+      "required_files": [
+        "pipeline.json",
+        "texturing_pipeline.json",
+        "ckpts/ss_flow_img_dit_1_3B_64_bf16.safetensors",
+        "ckpts/slat_flow_img2shape_dit_1_3B_1024_bf16.safetensors",
+        "ckpts/slat_flow_img2shape_dit_1_3B_512_bf16.safetensors",
+        "ckpts/slat_flow_imgshape2tex_dit_1_3B_1024_bf16.safetensors",
+        "ckpts/slat_flow_imgshape2tex_dit_1_3B_512_bf16.safetensors",
+        "ckpts/shape_enc_next_dc_f16c32_fp16.safetensors",
+        "ckpts/tex_enc_next_dc_f16c32_fp16.safetensors",
+        "ckpts/shape_dec_next_dc_f16c32_fp16.safetensors",
+        "ckpts/tex_dec_next_dc_f16c32_fp16.safetensors"
+      ],
+      "required_file_sizes": {
+        "pipeline.json": 4186,
+        "texturing_pipeline.json": 2965,
+        "ckpts/ss_flow_img_dit_1_3B_64_bf16.safetensors": 2584426920,
+        "ckpts/slat_flow_img2shape_dit_1_3B_1024_bf16.safetensors": 2584574424,
+        "ckpts/slat_flow_img2shape_dit_1_3B_512_bf16.safetensors": 2584574424,
+        "ckpts/slat_flow_imgshape2tex_dit_1_3B_1024_bf16.safetensors": 2584672728,
+        "ckpts/slat_flow_imgshape2tex_dit_1_3B_512_bf16.safetensors": 2584672728,
+        "ckpts/shape_enc_next_dc_f16c32_fp16.safetensors": 708797208,
+        "ckpts/tex_enc_next_dc_f16c32_fp16.safetensors": 708797208,
+        "ckpts/shape_dec_next_dc_f16c32_fp16.safetensors": 948490494,
+        "ckpts/tex_dec_next_dc_f16c32_fp16.safetensors": 948458812
+      }
+    },
+    "trellis_image_large": {
+      "source_type": "official_hf",
+      "repo_id": "microsoft/TRELLIS-image-large",
+      "source_url": "https://huggingface.co/microsoft/TRELLIS-image-large",
+      "modelscope_repo_id": "microsoft/TRELLIS-image-large",
+      "modelscope_url": "https://modelscope.cn/models/microsoft/TRELLIS-image-large",
+      "modelscope_revision": "master",
+      "local_dir": "models/trellis_image_large",
+      "role": "Sparse-structure decoder referenced by the TRELLIS.2 pipeline",
+      "required": true,
+      "license": "MIT (upstream model card)",
+      "estimated_size_gb": 0.2,
+      "required_files": [
+        "ckpts/ss_dec_conv3d_16l8_fp16.json",
+        "ckpts/ss_dec_conv3d_16l8_fp16.safetensors"
+      ],
+      "allow_patterns": [
+        "ckpts/ss_dec_conv3d_16l8_fp16.json",
+        "ckpts/ss_dec_conv3d_16l8_fp16.safetensors",
+        "README.md"
+      ]
+    },
+    "dinov3_vitl16": {
+      "source_type": "official_hf",
+      "repo_id": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "source_url": "https://huggingface.co/facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "modelscope_repo_id": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "modelscope_url": "https://modelscope.cn/models/facebook/dinov3-vitl16-pretrain-lvd1689m",
+      "modelscope_revision": "master",
+      "local_dir": "models/dinov3_vitl16",
+      "role": "DINOv3 image-condition encoder used by TRELLIS.2",
+      "required": true,
+      "license": "Meta DINOv3 License",
+      "estimated_size_gb": 1.2,
+      "required_files": ["config.json", "model.safetensors"],
+      "allow_patterns": [
+        "config.json",
+        "model.safetensors",
+        "preprocessor_config.json",
+        "README.md",
+        "LICENSE.md"
+      ]
+    },
+    "rmbg2": {
+      "source_type": "official_hf",
+      "repo_id": "briaai/RMBG-2.0",
+      "source_url": "https://huggingface.co/briaai/RMBG-2.0",
+      "modelscope_repo_id": "briaai/RMBG-2.0",
+      "modelscope_url": "https://modelscope.cn/models/briaai/RMBG-2.0",
+      "modelscope_revision": "master",
+      "local_dir": "models/rmbg2",
+      "role": "Background removal model initialized by TRELLIS.2",
+      "required": true,
+      "license": "CC BY-NC 4.0 (upstream model card)",
+      "estimated_size_gb": 0.9,
+      "required_files": [
+        "config.json",
+        "model.safetensors",
+        "birefnet.py",
+        "BiRefNet_config.py"
+      ],
+      "allow_patterns": [
+        "config.json",
+        "model.safetensors",
+        "birefnet.py",
+        "BiRefNet_config.py",
+        "preprocessor_config.json",
+        "README.md"
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+dtype: float16
+dinov2_source_root: ../third_party/src/dinov2
+dinov2_torch_hub_dir: ../models/dinov2/torch_hub
+dinov2_weights_path: ../models/dinov2/torch_hub/checkpoints/dinov2_vitl14_reg4_pretrain.pth
+ss_generator_config_path: ../models/sam3d/checkpoints/ss_generator.yaml
+ss_generator_ckpt_path: ../models/sam3d/checkpoints/ss_generator.ckpt
+ss_preprocessor:
+  _target_: sam3d_objects.data.dataset.tdfy.preprocessor.PreProcessor
+  img_mask_joint_transform: []
+  img_mask_pointmap_joint_transform:
+    - _partial_: true
+      _target_: sam3d_objects.data.dataset.tdfy.img_and_mask_transforms.resize_all_to_same_size
+    - _partial_: true
+      _target_: sam3d_objects.data.dataset.tdfy.img_and_mask_transforms.crop_around_mask_with_padding
+      box_size_factor: 1.2
+      padding_factor: 0.0
+  img_transform:
+    _target_: torchvision.transforms.Compose
+    transforms:
+      - _partial_: true
+        _target_: sam3d_objects.data.dataset.tdfy.img_processing.pad_to_square_centered
+      - _target_: torchvision.transforms.Resize
+        size: 518
+  mask_transform:
+    _target_: torchvision.transforms.Compose
+    transforms:
+      - _partial_: true
+        _target_: sam3d_objects.data.dataset.tdfy.img_processing.pad_to_square_centered
+      - _target_: torchvision.transforms.Resize
+        interpolation: 0
+        size: 518
+  normalize_pointmap: true
+  pointmap_normalizer:
+    _target_: sam3d_objects.data.dataset.tdfy.img_and_mask_transforms.ObjectCentricSSI
+    allow_scale_and_shift_override: true
+    use_scene_scale: true
+  pointmap_transform:
+    _target_: torchvision.transforms.Compose
+    transforms:
+      - _partial_: true
+        _target_: sam3d_objects.data.dataset.tdfy.img_processing.pad_to_square_centered
+      - _target_: torchvision.transforms.Resize
+        interpolation: 0
+        size: 518
+depth_model:
+  _target_: sam3d_objects.pipeline.depth_models.moge.MoGe
+  model:
+    _target_: moge.model.v1.MoGeModel.from_pretrained
+    pretrained_model_name_or_path: ../models/moge/model.pt

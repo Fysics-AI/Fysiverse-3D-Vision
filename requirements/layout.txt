@@ -1,0 +1,24 @@
+-r common.txt
+
+# Fysiverse-3D-Vision, SAM3D, MoGe, scene assembly, and GLB export.
+astor==0.8.1
+easydict==1.13
+fvcore==0.1.5.post20221221
+iopath==0.1.10
+ninja>=1.11
+jaxtyping>=0.2,<1
+lightning>=2.3,<3
+loguru>=0.7,<1
+numpy-quaternion>=2024.0
+open3d==0.18.0
+point-cloud-utils==0.29.5
+rich>=12,<15
+roma==1.5.1
+rootutils==1.0.7
+scikit-image==0.23.1
+spconv-cu121==2.3.8
+timm==0.9.16
+moderngl>=5.10,<6
+optree>=0.14,<1
+plyfile>=1.0,<2
+xatlas==0.0.9

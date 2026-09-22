@@ -1,0 +1,10 @@
+# FLUX.2 object-completion worker. Diffusers is installed from the pinned
+# checkout in third_party/src/diffusers.
+accelerate==0.30.0
+huggingface_hub>=0.34,<2.0
+modelscope>=1.22,<2.0
+importlib-metadata>=6,<9
+Pillow>=10,<11
+safetensors==0.7.0
+tokenizers==0.22.2
+transformers==5.1.0

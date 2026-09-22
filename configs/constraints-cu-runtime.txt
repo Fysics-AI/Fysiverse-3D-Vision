@@ -1,0 +1,6 @@
+# Shared ABI and model-library constraints for Layout, Mask, and TRELLIS.2.
+# Applied to every pip subprocess so later backend installs cannot silently
+# replace versions selected by the public inference runtime.
+numpy==1.26.4
+Pillow==10.4.0
+huggingface_hub==0.29.1

@@ -1,0 +1,5 @@
+# Compatibility entry point for the primary Layout environment.
+# Each inference worker now has its own manifest under requirements/.
+# PyTorch and source-built CUDA extensions are installed separately; use
+# scripts/bootstrap_envs.sh or follow the manual commands in README.md.
+-r requirements/layout.txt

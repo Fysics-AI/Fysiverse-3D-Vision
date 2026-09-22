@@ -1,0 +1,3 @@
+"""Fysiverse-3D-Vision inference package."""
+
+__version__ = "0.1.0"

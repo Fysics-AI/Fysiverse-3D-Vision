@@ -1,0 +1,32 @@
+# Downloaded dependencies and generated inference data.
+/models/*
+/third_party/*
+/result/
+/test/
+/tests/
+/.cache/
+/tmp/
+
+# Python environments, caches, and build artifacts.
+/.venv/
+/.env
+__pycache__/
+*.egg-info/
+/.pytest_cache/
+/build/
+/dist/
+
+# Local editor and agent metadata.
+/.idea/
+/.vscode/
+/.agents/
+/.codex/
+/.qoder/
+
+# Public documentation allowlist. New docs stay local until explicitly reviewed.
+/docs/**
+!/docs/environment.md
+!/docs/input-output-protocol.md
+!/docs/layout-model-format.md
+!/docs/models.md
+!/docs/third-party-sources.md

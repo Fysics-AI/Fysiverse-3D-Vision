@@ -1,0 +1,13 @@
+# Validated with the pinned TRELLIS.2 source, PyTorch 2.6.0+cu124, and H200.
+# DINOv3ViTModel is unavailable in the older Transformers release selected by
+# the Layout/Mask Hugging Face Hub constraint, so TRELLIS uses its own stack.
+numpy==1.26.4
+Pillow==10.4.0
+huggingface_hub==0.36.1
+transformers==4.57.6
+tokenizers==0.22.2
+safetensors==0.7.0
+opencv-python-headless==4.11.0.86
+kornia==0.8.2
+timm==1.0.24
+trimesh==4.11.1

@@ -1,0 +1,9 @@
+# Formal post-refinement worker. nvdiffrast is installed from its pinned
+# source checkout by scripts/install_cuda_extensions.sh.
+numpy==1.26.4
+Pillow==10.4.0
+imageio==2.37.2
+imageio-ffmpeg>=0.4,<1
+opencv-python-headless==4.10.0.84
+scipy>=1.10,<2
+trimesh>=4.5,<5

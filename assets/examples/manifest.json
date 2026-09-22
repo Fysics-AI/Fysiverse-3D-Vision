@@ -1,0 +1,149 @@
+{
+  "schema": "fysiverse.public_test_media.v3",
+  "generated_at": "2026-08-28",
+  "inference": {
+    "layout_entry": "python -m fysiverse.layout_worker",
+    "refinement_entry": "scripts/post_refine/run.sh",
+    "dataset": "3D-FUTURE test split",
+    "reused_inputs": [
+      "provided 3D-FUTURE instance masks",
+      "existing per-object 3D asset GLBs"
+    ],
+    "not_rerun": [
+      "Grounded-SAM2",
+      "FLUX",
+      "TRELLIS.2"
+    ],
+    "source_variant": "formal Fysiverse-3D-Vision assembly and post-refinement outputs"
+  },
+  "renderer": {
+    "application": "Blender 4.5.4 LTS",
+    "engine": "BLENDER_EEVEE_NEXT",
+    "material_mode": "imported glTF PBR nodes and embedded textures",
+    "frames": 24,
+    "frame_durations_ms": [
+      80,
+      90
+    ],
+    "duration_ms": 2010,
+    "fps": 12,
+    "gif_canvas_size": [
+      640,
+      640
+    ],
+    "input_size": [
+      1200,
+      1200
+    ],
+    "still_samples": 8,
+    "frame_samples": 1,
+    "source_variant": "formal scene assembly before and formal post-refinement after"
+  },
+  "samples": [
+    {
+      "id": "0000000",
+      "dataset": "3D-FUTURE test",
+      "objects": 7,
+      "input": {
+        "path": "scene_0000000_input.png",
+        "bytes": 1396277,
+        "sha256": "77997e535f1d2d3449db7c7ea3b2169e6f8c95931990beae23971a85bf91fec2"
+      },
+      "before": {
+        "gif": "scene_0000000_before.gif",
+        "source_glb": "before_scene.glb",
+        "source_glb_bytes": 255482656,
+        "source_glb_sha256": "6363632e45dd6a8a68a9a109c1515f1dfb34b8a41d60f3c3c9666127f8f62ec6",
+        "gif_bytes": 3179926,
+        "gif_sha256": "6b9e781af1f609c36b81d2f7a9b4a507be325e4c25aa4f217cc9de36e38fae0f"
+      },
+      "refined": {
+        "gif": "scene_0000000_after.gif",
+        "source_glb": "after_scene_refined.glb",
+        "source_glb_bytes": 255484216,
+        "source_glb_sha256": "d9628316b0b36d9133a0ea035696d0744d0eb6a959c940fe4d549612405eb598",
+        "gif_bytes": 3533773,
+        "gif_sha256": "5078cb86d777fa88a457b5396c190be03be0ec17a19c24fcbcab277e89e8c932"
+      },
+      "metrics": {
+        "before_miou": 0.10204443716330237,
+        "after_miou": 0.14535927715757713,
+        "miou_delta": 0.043314839994274754,
+        "before_r_pen": 1.557368973557487,
+        "after_r_pen": 0.0,
+        "before_penetrating_triangle_pairs": 338,
+        "after_penetrating_triangle_pairs": 0
+      }
+    },
+    {
+      "id": "0000008",
+      "dataset": "3D-FUTURE test",
+      "objects": 5,
+      "input": {
+        "path": "scene_0000008_input.png",
+        "bytes": 1947611,
+        "sha256": "ca84ea870f14ad3e1c6d03cda20a877043d2e5134c792ce31875672dfa3e04c4"
+      },
+      "before": {
+        "gif": "scene_0000008_before.gif",
+        "source_glb": "before_scene.glb",
+        "source_glb_bytes": 182586020,
+        "source_glb_sha256": "2ee04920a802714635ef71e03ac9e0c802eefd5899b5e4a4058f6dc8a548beca",
+        "gif_bytes": 2725836,
+        "gif_sha256": "e240fb2560e2f64401fc003bf63f2852d3c024906f51cd4ec4191a4371658015"
+      },
+      "refined": {
+        "gif": "scene_0000008_after.gif",
+        "source_glb": "after_scene_refined.glb",
+        "source_glb_bytes": 182588040,
+        "source_glb_sha256": "d8c54e76055ab519cb16c2ee126848adf25f50c1a8f78471e817f00bdca8ba2c",
+        "gif_bytes": 2937300,
+        "gif_sha256": "734db16d99a41fdc022e0f6d5e0225991b0ae4cca301b41c4fd289021a17cd78"
+      },
+      "metrics": {
+        "before_miou": 0.20225384691447185,
+        "after_miou": 0.4853472197611498,
+        "miou_delta": 0.28309337284667796,
+        "before_r_pen": 0.0,
+        "after_r_pen": 0.0,
+        "before_penetrating_triangle_pairs": 0,
+        "after_penetrating_triangle_pairs": 0
+      }
+    },
+    {
+      "id": "0000035",
+      "dataset": "3D-FUTURE test",
+      "objects": 4,
+      "input": {
+        "path": "scene_0000035_input.png",
+        "bytes": 1786009,
+        "sha256": "22bc0aa3784544212a33c946eca9508ecda1c72c30cd0413a4eab6a71ffb0bc1"
+      },
+      "before": {
+        "gif": "scene_0000035_before.gif",
+        "source_glb": "before_scene.glb",
+        "source_glb_bytes": 174755392,
+        "source_glb_sha256": "6acb91862d2a809167ea365b5c6a262742d63ba2dbb2f929f5dd91950138dfc7",
+        "gif_bytes": 2702853,
+        "gif_sha256": "dde631ed2d1e8bdac3ff46b58b01a20f0d308565ad94ee825c4fea122aebfd24"
+      },
+      "refined": {
+        "gif": "scene_0000035_after.gif",
+        "source_glb": "after_scene_refined.glb",
+        "source_glb_bytes": 174756676,
+        "source_glb_sha256": "477956a9ce7db6b31d27f8b8220035e1b7ea911443a27796071fe2b3f1c864f0",
+        "gif_bytes": 2954455,
+        "gif_sha256": "4ece7d1a1317114bce5a498856dc48e21206f893a7a2f598791dc5d60d842126"
+      },
+      "metrics": {
+        "before_miou": 0.17780557834725985,
+        "after_miou": 0.4469610738995923,
+        "miou_delta": 0.2691554955523324,
+        "before_r_pen": 1.8982666406801971,
+        "after_r_pen": 0.0,
+        "before_penetrating_triangle_pairs": 337,
+        "after_penetrating_triangle_pairs": 0
+      }
+    }
+  ]
+}
